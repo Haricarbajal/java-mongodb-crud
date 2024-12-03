@@ -39,8 +39,20 @@ public class Main {
                         collection.insertOne(newUser);
                         System.out.println("Nuevo usuario insertado correctamente");
                     case 4:
+                        System.out.println("Que operacion deseas realizar...");
+                        System.out.println("1.Listar Todos los usuarios\n2.Buscar un usuario");
+                        int oList = scan.nextInt();
+                        System.out.println("-------------------------------------------------");
                         Read read = new Read();
-                        read.ListAll(collection);
+                        if(oList == 1){
+                            read.ListAll(collection);
+                        }
+                        if(oList == 2){
+                            scan.nextLine();
+                            System.out.println("Escribe el nombre del usuario que quieres buscar: ");
+                            String nombre = scan.nextLine();
+                            read.ListUser(collection, nombre);
+                        }
                 }
             } while ( opcion != 0);
 
